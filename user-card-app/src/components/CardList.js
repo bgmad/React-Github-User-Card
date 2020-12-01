@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const CardList = props => {
     return (
       <CardListContainer>
-        {props.userList.map(item => <Card item={item}/>)} 
+        {props.userList.map(item => <Card item={item} id={item['node_id']} key={item.id}/>)} 
       </CardListContainer>
     )
 }

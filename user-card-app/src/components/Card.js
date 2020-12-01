@@ -1,23 +1,26 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import gsap from 'gsap';
 
-const Card = props => {
-    return (
-      <CardStyle>
-        <img src={props.item['avatar_url']} alt='User avatar'/>
-        <h2 style={{display: 'inline-block'}}>{props.item.name}</h2>
-      </CardStyle>
-    )
+class Card extends React.Component {
+
+    render() {
+        return (
+        <CardContainer>
+            <img src={this.props.item['avatar_url']} alt='User avatar'/>
+            <h2 style={{display: 'inline-block'}}>{this.props.item.name}</h2>
+        </CardContainer>
+        )
+    }
 }
 
 export default Card; 
 
-const CardStyle = styled.div`
+const CardContainer = styled.div`
     width: 80%;
     display: flex;
     align-items: center;
     padding: 5px;
-    background-color: lightcoral;
     border-radius: 10px;
 
     border: thin black solid;
