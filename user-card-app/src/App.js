@@ -1,26 +1,28 @@
 import React from 'react';
-import { getData } from './components/data'
-import CardList from './components/CardList'
+import { getData } from './components/data';
+import CardList from './components/CardList';
+import SearchForm from './components/SearchForm';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      userList: []
     }
   }
 
   componentDidMount() {
     getData('https://api.github.com/users/bgmad')
-    .then(res => this.setState({data: [...this.state.data, res]}))
+    .then(res => this.setState({userList: [...this.state.userList, res]}))
     .catch(err => console.error(`Error: ${err}`))
   }
 
   render() {
-    console.log(this.state.data[0])
+    console.log(this.state.userList[0])
       return (
       <div>
-        <CardList data={this.state.data}/>
+        <SearchForm/>
+        <CardList userList={this.state.userList}/>
       </div>
     )
   }
