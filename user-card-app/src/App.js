@@ -12,7 +12,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    getData('https://api.github.com/users/bgmad')
+  }
+
+  addUser = username => {
+    getData(`https://api.github.com/users/${username}`)
     .then(res => this.setState({userList: [...this.state.userList, res]}))
     .catch(err => console.error(`Error: ${err}`))
   }
@@ -21,7 +24,7 @@ class App extends React.Component {
     console.log(this.state.userList[0])
       return (
       <div>
-        <SearchForm/>
+        <SearchForm userList={this.state.userList} addUser={this.addUser}/>
         <CardList userList={this.state.userList}/>
       </div>
     )

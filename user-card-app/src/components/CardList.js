@@ -15,5 +15,6 @@ export default CardList;
 const CardListContainer = styled.div`
     display: flex;
     width: 100%;
-    justify-content: center;
+    flex-flow: column wrap;
+    align-items: center;
 `;
